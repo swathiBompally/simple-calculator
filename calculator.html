@@ -1,0 +1,99 @@
+<!doctype html>
+<html>
+<head>
+<title>calculator</title>
+<style>
+input{
+width:55px;
+height:40px;
+text-align:center;
+font-size:20px;
+border-radius:7px;
+color:white;
+background-color:black;
+box-shadow:  1px 1px 1px 1px rgba(0,255,255,0.2),
+            1px 1px 1px 1px rgba(0,255,255,0.2),
+            1px 1px 1px 1px rgba(0,255,255,0.2),
+            1px 1px 1px 1px rgba(0,255,255,0.2);
+}
+#equal{
+height:130px;
+}
+#inp{
+width:250px;
+color:black;
+background-color:white;
+font-size:25px;
+height:60px;
+}
+table{
+background-color:#100f0f85;
+border-radius:10px;
+}
+h1{
+text-align:center;
+}
+</style>
+</head>
+<body>
+
+<h1>calculator</h1>
+<table border="0"  align="center" rules="all" cellpadding="5">
+<tr>
+<td colspan="4"><input type="text" id="inp"></td>
+</tr>
+<tr>
+<td><input type="button" value="+" onclick="display('+')"></td>
+<td><input type="button" value="-" onclick="display('-')"></td>
+<td><input type="button" value="*" onclick="display('*')"></td>
+<td><input type="button" value="/" onclick="display('/')"></td>
+</tr>
+<tr>
+<td><input type="button" value="9" onclick="display('9')"></td>
+<td><input type="button" value="8" onclick="display('8')"></td>
+<td><input type="button" value="7" onclick="display('7')"></td>
+<td rowspan="3"><input type="button" value=" =" id="equal" onclick="evaluation()"></td>
+</tr>
+<tr>
+<td><input type="button" value="6" onclick="display('6')"></td>
+<td><input type="button" value="5" onclick="display('5')"></td>
+<td><input type="button" value="4" onclick="display('4')"></td>
+</tr>
+<tr>
+<td><input type="button" value="3" onclick="display('3')"></td>
+<td><input type="button" value="2" onclick="display('2')"></td>
+<td><input type="button" value="1" onclick="display('1')"></td>
+</tr>
+<tr>
+<td><input type="button" onclick="display('0')" value="0"></td>
+<td><input type="button" onclick="display('.')" value="."></td>
+<td><input type="button" onclick="deletee()" value="del"></td>
+<td><input type="button" value="AC" onclick="ac()"></td>
+</tr>
+</table>
+
+<script>
+function display(data){
+let inp=document.getElementById("inp")
+inp.value +=data
+
+}
+function evaluation(){
+let a=document.getElementById("inp").value;
+let b=eval(a)
+document.getElementById("inp").value=b
+}
+function ac(){
+document.getElementById("inp").value=""
+}
+function deletee(){
+let num=document.getElementById("inp")
+num.value=num.value.slice(0,-1)
+if(num.value==""){
+num.value="0"
+}
+}
+
+</script>
+</body>
+</html>
